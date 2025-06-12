@@ -39,26 +39,7 @@
         }
       ]
     }
-  },
-  "scripts": {
-    "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
-    "lint": "eslint src --ext ts"
-  },
-  "devDependencies": {
-    "@types/vscode": "^1.85.0",
-    "typescript": "^5.3.3",
-    "eslint": "^8.56.0"
-  },
-  "dependencies": {
-    "openai": "^4.26.0"
-  }
-}
-
-
-
-"contributes": {
+   
   "configuration": {
     "title": "MCP Agent",
     "properties": {
@@ -82,4 +63,22 @@
       }
     }
   }
+
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.3.3",
+    "eslint": "^8.56.0"
+  },
+  "dependencies": {
+    "openai": "^4.26.0"
+  }
 }
+
+
