@@ -3,6 +3,24 @@ import * as vscode from 'vscode';
 import { getCurrentEditorContent } from './mcp/context-provider';
 import { LLMAdapter } from './llm/llm-adapter';
 import { OpenAIAdapter } from './llm/providers/openai-adapter';
+import { ClaudeAdapter } from './llm/providers/claude-adapter';
+import { GeminiAdapter } from './llm/providers/gemini-adapter';
+
+const config = vscode.workspace.getConfiguration('mcp');
+const providerName = config.get<string>('llmProvider') || 'openai';
+
+switch (providerName.toLowerCase()) {
+  case 'claude':
+    llmProvider = new ClaudeAdapter();
+    break;
+  case 'gemini':
+    llmProvider = new GeminiAdapter();
+    break;
+  case 'openai':
+  default:
+    llmProvider = new OpenAIAdapter();
+}
+
 
 let llmProvider: LLMAdapter;
 
