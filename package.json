@@ -1,0 +1,48 @@
+{
+  "name": "vscode-mcp-agent",
+  "displayName": "VSCode MCP Agent",
+  "description": "An MVP agent to explain code in the active editor.",
+  "version": "0.0.1",
+  "publisher": "your-publisher-name", // 替换成你的名字或ID
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Conquerhegemon/vscode-mcp-agent.git" // 替换成你的仓库URL
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:vscode-mcp-agent.explainCode"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "vscode-mcp-agent.explainCode",
+        "title": "MCP Agent: Explain This Code"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@typescript-eslint/eslint-plugin": "^6.19.1",
+    "@typescript-eslint/parser": "^6.19.1",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "openai": "^4.26.0"
+  }
+}
