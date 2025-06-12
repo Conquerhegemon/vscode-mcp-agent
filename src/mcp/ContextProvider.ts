@@ -5,7 +5,7 @@ export interface ContextInfo {
     content: string;
 }
 
-export class VscodeContextProvider {
+export class ContextProvider {
     // 示例：获取工作区内所有 TS 文件的路径和内容
     public async getWorkspaceTypescriptFiles(): Promise<ContextInfo[]> {
         const files = await vscode.workspace.findFiles('**/*.ts', '**/node_modules/**');
