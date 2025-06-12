@@ -8,12 +8,14 @@
     "type": "git",
     "url": "https://github.com/Conquerhegemon/vscode-mcp-agent.git"
   },
-  "engines": { "vscode": "^1.85.0" },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
   "activationEvents": [
     "onCommand:vscode-mcp-agent.explainCode",
     "onView:mcp-agent-chat-view"
   ],
-  "main": "./dist/extension.js"
+  "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
@@ -38,32 +40,30 @@
           "type": "webview"
         }
       ]
-    }
-   
-  "configuration": {
-    "title": "MCP Agent",
-    "properties": {
-      "mcp.openaiApiKey": {
-        "type": "string",
-        "description": "OpenAI API Key"
-      },
-      "mcp.claudeApiKey": {
-        "type": "string",
-        "description": "Claude (Anthropic) API Key"
-      },
-      "mcp.geminiApiKey": {
-        "type": "string",
-        "description": "Google Gemini API Key"
-      },
-      "mcp.llmProvider": {
-        "type": "string",
-        "enum": ["openai", "claude", "gemini"],
-        "default": "openai",
-        "description": "Which LLM provider to use"
+    },
+    "configuration": {
+      "title": "MCP Agent",
+      "properties": {
+        "mcp.openaiApiKey": {
+          "type": "string",
+          "description": "OpenAI API Key"
+        },
+        "mcp.claudeApiKey": {
+          "type": "string",
+          "description": "Claude (Anthropic) API Key"
+        },
+        "mcp.geminiApiKey": {
+          "type": "string",
+          "description": "Google Gemini API Key"
+        },
+        "mcp.llmProvider": {
+          "type": "string",
+          "enum": ["openai", "claude", "gemini"],
+          "default": "openai",
+          "description": "Which LLM provider to use"
+        }
       }
     }
-  }
-
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
@@ -80,5 +80,3 @@
     "openai": "^4.26.0"
   }
 }
-
-
