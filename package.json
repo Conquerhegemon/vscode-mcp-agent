@@ -55,3 +55,31 @@
     "openai": "^4.26.0"
   }
 }
+
+
+
+"contributes": {
+  "configuration": {
+    "title": "MCP Agent",
+    "properties": {
+      "mcp.openaiApiKey": {
+        "type": "string",
+        "description": "OpenAI API Key"
+      },
+      "mcp.claudeApiKey": {
+        "type": "string",
+        "description": "Claude (Anthropic) API Key"
+      },
+      "mcp.geminiApiKey": {
+        "type": "string",
+        "description": "Google Gemini API Key"
+      },
+      "mcp.llmProvider": {
+        "type": "string",
+        "enum": ["openai", "claude", "gemini"],
+        "default": "openai",
+        "description": "Which LLM provider to use"
+      }
+    }
+  }
+}
