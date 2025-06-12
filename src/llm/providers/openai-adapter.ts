@@ -1,4 +1,5 @@
 // src/llm/providers/openai-adapter.ts
+import * as vscode from 'vscode';
 import OpenAI from 'openai';
 import { LLMAdapter, LLMResponse } from '../llm-adapter';
 
@@ -6,18 +7,13 @@ export class OpenAIAdapter implements LLMAdapter {
   private openai: OpenAI;
 
   constructor() {
-    // 
-    // ####################################################################
-    // # 警告：API Key 硬编码仅用于 MVP 快速开发。                        #
-    // # 正式发布前，必须改为从 VS Code 配置中安全读取。                  #
-    // ####################################################################
-    // 
-    const apiKey = 'sk-YOUR_OPENAI_API_KEY_HERE'; // <--- 在此替换你的 KEY
+    const config = vscode.workspace.getConfiguration('mcp');
+    const apiKey = config.get<string>('openaiApiKey');
 
-    if (!apiKey || apiKey === 'sk-YOUR_OPENAI_API_KEY_HERE') {
-      // 在构造函数中抛出错误，以便在插件激活时就能发现问题
-      throw new Error("OpenAI API key is not configured. Please replace the placeholder in openai-adapter.ts.");
+    if (!apiKey) {
+      throw new Error("OpenAI API key not found in settings (mcp.openaiApiKey).");
     }
+
     this.openai = new OpenAI({ apiKey });
   }
 
